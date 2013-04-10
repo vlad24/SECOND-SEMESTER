@@ -1,0 +1,111 @@
+#include "PointerList.h"
+#include "AddingError.h"
+#include "DeletingError.h"
+#include <stdio.h>
+
+PointerList::PointerList()
+{
+    head = NULL;
+}
+
+bool PointerList::listIsEmpty() const
+{
+    return (head == NULL) ;
+}
+
+void PointerList::print() const
+{
+    ListElement* tmp = head ;
+    if (!listIsEmpty())
+    {
+
+        while (tmp != NULL)
+        {
+            printf("%d ", tmp->value);
+            tmp = tmp->next;
+        }
+    }
+    else
+    {
+        printf("You have an empty list.");
+    }
+    printf("\n");
+}
+
+void PointerList::remove(int value)
+{
+    if (!(listIsEmpty()))
+    {
+       ListElement* tmp = head;
+       ListElement* previous = tmp;
+       while ((tmp->value != value))
+       {
+           previous = tmp;
+           tmp = tmp->next;
+           if (tmp == NULL)
+               break;
+       }
+       if (tmp == NULL)
+       {
+            throw DeletingError();
+       }
+       else
+       {
+           if (tmp == head)
+           {
+               head = tmp->next;
+               delete tmp;
+           }
+           else
+           {
+               previous->next = tmp->next;
+               delete tmp;
+           }
+       }
+    }
+    else
+    {
+        printf("# Empty list.\n");
+        throw DeletingError();
+    }
+}
+
+void PointerList::add(int value)
+{
+    if (!listIsEmpty())
+    {
+        ListElement* tmp = head;
+        while (tmp->next != NULL)
+        {
+            if (tmp->value == value)
+                throw AddingError();
+            tmp = tmp->next;
+        }
+        if (tmp->value == value)
+            throw AddingError();
+        tmp->next = new ListElement;
+        tmp->next->value = value;
+        tmp->next->next = NULL;
+
+    }
+    else
+    {
+     head = new ListElement;
+     head->next = NULL;
+     head->value = value;
+    }
+}
+PointerList::~PointerList()
+{
+    if (!listIsEmpty())
+    {
+        ListElement* tmp = head;
+        while(tmp->next != NULL)
+        {
+            ListElement* tmp2 = tmp ;
+            tmp = tmp->next ;
+            delete tmp2;
+        }
+        delete tmp ;
+    }
+}
