@@ -5,8 +5,8 @@
 
 int main()
 {
-    //ListTester tester;
-    //QTest::qExec(&tester);
+    ListTester tester;
+    QTest::qExec(&tester);
     int answer = 0;
     printf("Hello. With what type of List you would like to work?\n");
     printf("0 - pointer list ; 1 - array list\n");
