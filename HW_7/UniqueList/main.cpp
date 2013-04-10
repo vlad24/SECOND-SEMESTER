@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include "Tester.h"
 #include "PointerList.h"
 #include "DeletingError.h"
 #include "AddingError.h"
 
 int main()
 {
+    Tester tester;
+    QTest::qExec(&tester);
     int answer = 0;
     PointerList* listObject = new PointerList();
     printf ("List has been successfully created.\n");

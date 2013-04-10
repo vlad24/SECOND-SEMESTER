@@ -1,6 +1,7 @@
 TEMPLATE = app
 CONFIG += console
-CONFIG -= qt
+CONFIG += qt
+CONFIG += qtestlib
 
 SOURCES += main.cpp \
     PointerList.cpp
@@ -8,5 +9,6 @@ SOURCES += main.cpp \
 HEADERS += \
     AddingError.h \
     DeletingError.h \
-    PointerList.h
+    PointerList.h \
+    Tester.h
 

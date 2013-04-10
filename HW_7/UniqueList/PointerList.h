@@ -1,5 +1,6 @@
 #pragma once
 
+
 class PointerList
 {
     friend class ListTester;
