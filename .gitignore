@@ -1,0 +1,9 @@
+Additional/
+StudentWork/
+*debug*
+*.pro.user*
+*.autosave
+*.o
+*Makefile*
+*Release
+*ui_*.h
