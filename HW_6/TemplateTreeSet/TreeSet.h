@@ -3,7 +3,7 @@
 using namespace std;
 
 template <typename O>
-
+//! A class on which a set with adding searching and removing will be based
 class Tree
 {
     friend class TreeTester;

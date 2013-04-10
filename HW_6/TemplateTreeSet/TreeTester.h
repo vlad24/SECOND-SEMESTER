@@ -18,21 +18,29 @@ private slots:
         Tree<char> setChar;
         QVERIFY(setChar.isEmpty());
     }
-    void testAddInt()
+    void testAdd()
     {
         Tree<int> setInt;
-        setInt.addToTree(5);
-        QVERIFY(setInt.root->value == 5);
-        setInt.addToTree(10);
-        QVERIFY(setInt.root->right->value == 10);
+        setInt.addToTree(4);
+        QVERIFY(setInt.root->value == 4);
     }
-    void testAddChar()
+    void testExsistingAdded()
     {
-        Tree<char> setChar;
-        setChar.addToTree('x');
-        QVERIFY(setChar.root->value == 'x');
-        setChar.addToTree('y');
-        QVERIFY(setChar.root->right->value == 'y');
+       Tree<int> setInt;
+       setInt.addToTree(0);
+       QVERIFY(setInt.exsistsInTree(0));
     }
-
+    void testExsistingUnadded()
+    {
+       Tree<char> setChar;
+       setChar.addToTree('o');
+       QVERIFY(!setChar.exsistsInTree('p'));
+    }
+    void testRemoving()
+    {
+        Tree<int> setInt;
+        setInt.addToTree(4);
+        setInt.removeFromTree(4);
+        QVERIFY(setInt.isEmpty());
+    }
 };
