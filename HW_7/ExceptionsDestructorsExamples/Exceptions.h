@@ -6,11 +6,11 @@ class SomeClass
 public:
     SomeClass()
     {
-        printf("Constructor of SomeCLass is called\n");
+        printf("Constructor of SomeClass is called\n");
     }
     ~SomeClass()
     {
-        printf("Destructor of Some class is called\n");
+        printf("Destructor of SomeClass is called\n");
     }
 };
 
