@@ -38,6 +38,18 @@ public:
             inorder(root);
     }
 
+
+    void intersectTrees(Tree* &anotherTreeSet)
+    {
+        intersectSubTrees(root, anotherTreeSet);
+    }
+
+    void sumTrees(Tree* &anotherTreeSet)
+    {
+        sumSubTrees(root, anotherTreeSet);
+        anotherTreeSet->treeInorder();
+    }
+
     ~Tree()
     {
         deleteSubTree(root);
@@ -173,7 +185,7 @@ private:
         }
         else
         {
-            cout << node->value << endl ;
+            cout << node->value << endl;
             if (node->right != NULL)
                 inorder(node->right);
         }
@@ -190,5 +202,35 @@ private:
             deleteSubTree(node->right);
             delete node;
         }
+    }
+
+    void intersectSubTrees(TreeNode* &node, Tree* anotherTreeSet)
+    {
+        if (node != NULL)
+        {
+            if (anotherTreeSet->exsistsInTree(node->value))
+            {
+                cout << node->value << endl;
+            }
+            intersectSubTrees(node->left, anotherTreeSet);
+            intersectSubTrees(node->right, anotherTreeSet);
+        }
+        else
+            return;
+    }
+
+    void sumSubTrees(TreeNode* &node, Tree* anotherTreeSet)
+    {
+        if (node != NULL)
+        {
+            if (!(anotherTreeSet->exsistsInTree(node->value)))
+            {
+                cout << node->value << endl;
+            }
+            sumSubTrees(node->left, anotherTreeSet);
+            sumSubTrees(node->right, anotherTreeSet);
+        }
+        else
+            return;
     }
 };
