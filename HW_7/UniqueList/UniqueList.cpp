@@ -28,7 +28,6 @@ void UniqueList::add(int value)
 }
 
 void UniqueList::remove(int value)
-
 {
     if (!(listIsEmpty()))
     {
