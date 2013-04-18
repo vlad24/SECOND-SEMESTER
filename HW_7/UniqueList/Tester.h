@@ -2,7 +2,7 @@
 
 #include <QObject>
 #include <QTest>
-#include "PointerList.h"
+#include "UniqueList.h"
 #include "AddingError.h"
 #include "DeletingError.h"
 
@@ -14,7 +14,7 @@ public:
 private slots:
     void testAddingFirst()
     {
-        PointerList* list = new PointerList();
+        UniqueList* list = new UniqueList();
         try
         {
             list->add(1);
@@ -27,7 +27,7 @@ private slots:
     }
     void testDeletingExsisting()
     {
-        PointerList* list = new PointerList();
+        UniqueList* list = new UniqueList();
         try
         {
             list->add(1);
@@ -41,7 +41,7 @@ private slots:
     }
     void testAddingExsisting()
     {
-        PointerList* list = new PointerList();
+        UniqueList* list = new UniqueList();
         bool goodJob = false;
         try
         {
@@ -57,7 +57,7 @@ private slots:
     }
     void testRemoveUnexsisting()
     {
-        PointerList* list = new PointerList();
+        UniqueList* list = new UniqueList();
         bool goodJob = false;
         try
         {

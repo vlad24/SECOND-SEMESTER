@@ -4,11 +4,13 @@ CONFIG += qt
 CONFIG += qtestlib
 
 SOURCES += main.cpp \
-    PointerList.cpp
+    PointerList.cpp \
+    UniqueList.cpp
 
 HEADERS += \
     AddingError.h \
     DeletingError.h \
+    Tester.h \
     PointerList.h \
-    Tester.h
+    UniqueList.h
 

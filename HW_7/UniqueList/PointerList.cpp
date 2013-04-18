@@ -1,6 +1,4 @@
 #include "PointerList.h"
-#include "AddingError.h"
-#include "DeletingError.h"
 #include <stdio.h>
 
 PointerList::PointerList()
@@ -47,7 +45,7 @@ void PointerList::remove(int value)
        }
        if (tmp == NULL)
        {
-            throw DeletingError();
+           printf("No element");
        }
        else
        {
@@ -66,7 +64,6 @@ void PointerList::remove(int value)
     else
     {
         printf("# Empty list.\n");
-        throw DeletingError();
     }
 }
 
@@ -76,17 +73,10 @@ void PointerList::add(int value)
     {
         ListElement* tmp = head;
         while (tmp->next != NULL)
-        {
-            if (tmp->value == value)
-                throw AddingError();
             tmp = tmp->next;
-        }
-        if (tmp->value == value)
-            throw AddingError();
         tmp->next = new ListElement;
         tmp->next->value = value;
         tmp->next->next = NULL;
-
     }
     else
     {

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "Tester.h"
-#include "PointerList.h"
+#include "UniqueList.h"
 #include "DeletingError.h"
 #include "AddingError.h"
 
@@ -9,7 +9,7 @@ int main()
     Tester tester;
     QTest::qExec(&tester);
     int answer = 0;
-    PointerList* listObject = new PointerList();
+    UniqueList* listObject = new UniqueList();
     printf ("List has been successfully created.\n");
     printf("0 - exit and destroy list;\n1 - add to list;\n2 - rm from list;\n3 - print list\n");
     bool stopIt = false;

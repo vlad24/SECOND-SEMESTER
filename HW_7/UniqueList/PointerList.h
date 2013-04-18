@@ -1,16 +1,15 @@
 #pragma once
 
-
 class PointerList
 {
     friend class ListTester;
 public:
     PointerList();
-    void add(int value);
-    void remove(int value);
+    virtual void add(int value);
+    virtual void remove(int value);
     void print() const;
     ~PointerList();
-private:
+protected:
     struct ListElement
     {
         int value;
