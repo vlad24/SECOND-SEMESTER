@@ -43,4 +43,11 @@ private slots:
         setInt.removeFromTree(4);
         QVERIFY(setInt.isEmpty());
     }
+    void testWorkingWithCharInIntSet()
+    {
+        Tree<int> intSet;
+        intSet.addToTree(int('v'));
+        intSet.removeFromTree('v');
+        QVERIFY(intSet.isEmpty());
+    }
 };
