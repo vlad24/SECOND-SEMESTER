@@ -50,4 +50,36 @@ private slots:
         intSet.removeFromTree('v');
         QVERIFY(intSet.isEmpty());
     }
+    void testAddingSeveralTimes()
+    {
+        Tree<int> intSet;
+        intSet.addToTree(1);
+        intSet.addToTree(1);
+        QVERIFY(intSet.root->left == NULL);
+        QVERIFY(intSet.root->right == NULL);
+    }
+
+    void testRemovingFromEmpty()
+    {
+        Tree<int> tree;
+        tree.removeFromTree(0);
+        QVERIFY(tree.isEmpty());
+    }
+
+    void testRemovingUnreal()
+    {
+        Tree<char> charSet;
+        charSet.addToTree('o');
+        charSet.removeFromTree('p');
+        QVERIFY(charSet.root->value == 'o');
+    }
+
+    void testRemovingSeverallyAdded()
+    {
+        Tree<int> set;
+        set.addToTree(2);
+        set.addToTree(2);
+        set.removeFromTree(2);
+        QVERIFY(set.isEmpty());
+    }
 };
