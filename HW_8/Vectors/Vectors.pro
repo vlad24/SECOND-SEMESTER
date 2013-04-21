@@ -3,9 +3,9 @@ CONFIG += console
 CONFIG += qt
 CONFIG += qtestlib
 
-SOURCES += main.cpp \
-    Vector.cpp
+SOURCES += main.cpp
 
 HEADERS += \
     Vector.h \
-    VectorTester.h
+    VectorTester.h \
+    DimError.h

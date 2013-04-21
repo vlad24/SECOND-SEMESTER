@@ -8,51 +8,61 @@ class VectorTester : public QObject
 {
     Q_OBJECT
 public:
-    explicit VectorTester(QObject *parent = 0): QObject(parent) {}
+    explicit VectorTester(QObject *parent = 0) : QObject(parent){}
 
 private slots:
-
-    void testSum()
+    void testSumming()
     {
-        Vector* vector1 = new Vector(1, 2, 3);
-        Vector* vector2 = new Vector(*vector1);
-        Vector* vector3 = new Vector(*(vector1->sumWithAnotherVector(vector2)));
-        QVERIFY(vector3->abscissa == 2);
-        QVERIFY(vector3->ordinate == 4);
-        QVERIFY(vector3->applicate == 6);
-        delete vector1;
-        delete vector2;
-        delete vector3;
+        int coordinatesSet1[3] = {7,7,7};
+        int coordinatesSet2[3] = {0,0,1};
+        Vector<int> vector1 = Vector<int>(coordinatesSet1, 3);
+        Vector<int> vector2 = Vector<int>(coordinatesSet2, 3);
+        Vector<int> vector3 = vector1 + vector2;
+        QVERIFY(vector3.coordinates[0] == 7);
+        QVERIFY(vector3.coordinates[1] == 7);
+        QVERIFY(vector3.coordinates[2] == 8);
     }
-
     void testSubtraction()
     {
-        Vector* vector1 = new Vector(1, 2, 3);
-        Vector* vector2 = new Vector(-1, -2, -3);
-        Vector* vector3 = new Vector(*(vector1->subtractAnotherVector(vector2)));
-        QVERIFY(vector3->abscissa == 2);
-        QVERIFY(vector3->ordinate == 4);
-        QVERIFY(vector3->applicate == 6);
-        delete vector1;
-        delete vector2;
-        delete vector3;
+        char coordinatesSet1[3] = {'a','a','a'};
+        char coordinatesSet2[3] = {'q','z','q'};
+        Vector<char> vector1 = Vector<char>(coordinatesSet1, 3);
+        Vector<char> vector2 = Vector<char>(coordinatesSet2, 3);
+        Vector<char> vector3 = vector2 - vector1;
+        QVERIFY(vector3.coordinates[0] == char(16));
+        QVERIFY(vector3.coordinates[1] == char(25));
+        QVERIFY(vector3.coordinates[2] == char(16));
     }
-
+    void testMultiplication()
+    {
+        double coordinatesSet1[4] = {1.5, 2.5, 0, 1};
+        double coordinatesSet2[4] = {0, 4, 8.6543, 2};
+        Vector<double> vector1 = Vector<double>(coordinatesSet1, 4);
+        Vector<double> vector2 = Vector<double>(coordinatesSet2, 4);
+        double product = vector2 * vector1;
+        QVERIFY(int(product) == 12);
+    }
     void testZero()
     {
-        Vector* vector1 = new Vector(0, 0, 0);
-        QVERIFY(vector1->isZero());
-        delete vector1;
+        char coordinatesSet1[3] = {'o','o'};
+        Vector<char> vector1 = Vector<char>(coordinatesSet1, 2);
+        QVERIFY(vector1.isZero('o'));
     }
-
-    void testScalarProduct()
+    void testDimMistake()
     {
-        Vector* vector1 = new Vector(1, 2, 3);
-        Vector* vector2 = new Vector(*vector1);
-        int product = vector1->scalarProductWithAnotherVector(vector2);
-        QVERIFY(product == 14);
-        delete vector1;
-        delete vector2;
+        bool success = false;
+        int coordinatesSet1[3] = {7, 7, 7};
+        int coordinatesSet2[4] = {0, 0, 1, 1};
+        Vector<int> vector1 = Vector<int>(coordinatesSet1, 3);
+        Vector<int> vector2 =  Vector<int>(coordinatesSet2, 4);
+        try
+        {
+            Vector<int> errorVector = vector1 + vector2;
+        }
+        catch(DimError error)
+        {
+            success = true;
+        }
+         QVERIFY(success);
     }
-    
 };
