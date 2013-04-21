@@ -15,9 +15,9 @@ public:
     bool isZero(O zeroSign);
     void printVector();
     //! Overloaaded operators for summing, subtracting and scalar product
-    Vector operator+(Vector another);
-    Vector operator-(Vector another);
-    O operator*(Vector another);
+    Vector operator+(const Vector &another);
+    Vector operator-(const Vector &another);
+    O operator*(const Vector &another);
 protected:
     int N;
     O* coordinates;
@@ -68,7 +68,7 @@ void Vector<O>::printVector()
 }
 
 template <typename O>
-Vector<O> Vector<O>::operator+(Vector another)
+Vector<O> Vector<O>::operator+(const Vector& another)
 {
         if (N == another.N)
         {
@@ -83,7 +83,7 @@ Vector<O> Vector<O>::operator+(Vector another)
 }
 
 template <typename O>
-Vector<O> Vector<O>::operator-(Vector another)
+Vector<O> Vector<O>::operator-(const Vector& another)
 {
         if (N == another.N)
         {
@@ -98,7 +98,7 @@ Vector<O> Vector<O>::operator-(Vector another)
 }
 
 template <typename O>
-O Vector<O>::operator*(Vector another)
+O Vector<O>::operator*(const Vector& another)
 {
     if (N == (another.N))
     {
