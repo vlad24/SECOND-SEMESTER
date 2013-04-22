@@ -5,8 +5,9 @@ class PointerList
     friend class ListTester;
 public:
     PointerList();
-    virtual void add(int value);
-    virtual void remove(int value);
+    void add(int value);
+    void remove(int value);
+    bool exsists(int value) const;
     void print() const;
     ~PointerList();
 protected:

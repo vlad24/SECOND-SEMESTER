@@ -17,21 +17,22 @@ private slots:
         UniqueList* list = new UniqueList();
         try
         {
-            list->add(1);
-            list->add(4);
+            list->addCarefully(1);
+            list->addCarefully(4);
         }
         catch (AddingError error)
         {
             QFAIL("");
         }
+        delete list;
     }
     void testDeletingExsisting()
     {
         UniqueList* list = new UniqueList();
         try
         {
-            list->add(1);
-            list->remove(1);
+            list->addCarefully(1);
+            list->removeCarefully(1);
         }
         catch (DeletingError error)
         {
@@ -45,9 +46,9 @@ private slots:
         bool goodJob = false;
         try
         {
-            list->add(1);
-            list->add(4);
-            list->add(1);
+            list->addCarefully(1);
+            list->addCarefully(4);
+            list->addCarefully(1);
         }
         catch (AddingError error)
         {
@@ -61,9 +62,9 @@ private slots:
         bool goodJob = false;
         try
         {
-            list->add(1);
-            list->add(4);
-            list->remove(6);
+            list->addCarefully(1);
+            list->addCarefully(4);
+            list->removeCarefully(6);
         }
         catch (DeletingError error)
         {

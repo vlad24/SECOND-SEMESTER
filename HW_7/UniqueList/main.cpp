@@ -32,7 +32,7 @@ int main()
                 scanf("%d", &value);
                 try
                 {
-                    listObject->add(value);
+                    listObject->addCarefully(value);
                 }
                 catch(AddingError error)
                 {
@@ -48,7 +48,7 @@ int main()
                 scanf("%d", &value);
                 try
                 {
-                    listObject->remove(value);
+                    listObject->removeCarefully(value);
                 }
                 catch (DeletingError error)
                 {

@@ -67,6 +67,21 @@ void PointerList::remove(int value)
     }
 }
 
+bool PointerList::exsists(int value) const
+{
+   bool isInList = false;
+   if (!listIsEmpty())
+   {
+       ListElement* tmp = head;
+       while ((tmp != NULL) && (!isInList))
+       {
+            isInList = (tmp->value == value);
+            tmp =  tmp->next;
+       }
+   }
+   return isInList;
+}
+
 void PointerList::add(int value)
 {
     if (!listIsEmpty())

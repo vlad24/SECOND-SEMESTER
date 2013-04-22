@@ -4,6 +4,6 @@
 class UniqueList : public PointerList
 {
 public:
-    void add(int value);
-    void remove(int value);
+    void addCarefully(int value);
+    void removeCarefully(int value);
 };
