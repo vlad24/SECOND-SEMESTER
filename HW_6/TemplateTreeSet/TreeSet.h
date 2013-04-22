@@ -8,13 +8,6 @@ class Tree
 {
     friend class TreeTester;
 public:
-    struct TreeNode
-    {
-        O value;
-        TreeNode* left;
-        TreeNode* right;
-    };
-
     Tree() : root(NULL){}
 
     bool exsistsInTree(O value)
@@ -56,6 +49,12 @@ public:
     }
 
 private:
+    struct TreeNode
+    {
+        O value;
+        TreeNode* left;
+        TreeNode* right;
+    };
 
     TreeNode* root;
 
