@@ -6,6 +6,7 @@ CONFIG += qtestlib
 SOURCES += main.cpp
 
 HEADERS += \
+    TreeSet.h \
     MultiTreeSet.h \
     MultiTreeSetTester.h
 

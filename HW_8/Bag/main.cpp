@@ -1,5 +1,5 @@
-#include "MultiTreeSet.h"
 #include "MultiTreeSetTester.h"
+#include "MultiTreeSet.h"
 #include <iostream>
 
 using namespace std;
@@ -45,7 +45,7 @@ int main()
     char charValue = '+';
     if (type == symbols)
     {
-        Tree<char>* treeSet = new Tree<char>;
+        MultiTreeSet<char>* treeSet = new MultiTreeSet<char>;
         while (answer != stop)
         {
             answer = askAction();
@@ -55,7 +55,7 @@ int main()
             {
                 cout << "What value? " << endl;
                 cin >> charValue;
-                treeSet->addToTree(charValue);
+                treeSet->addToMultiTree(charValue);
                 cout << "Done." << endl;
                 break;
             }
@@ -89,7 +89,7 @@ int main()
     }
     else
     {
-        Tree<int>* treeSet = new Tree<int>;
+        MultiTreeSet<int>* treeSet = new MultiTreeSet<int>;
         while (answer != stop)
         {
             answer = askAction();
@@ -99,7 +99,7 @@ int main()
             {
                 cout << "What value? " << endl;
                 cin >> intValue;
-                treeSet->addToTree(intValue);
+                treeSet->addToMultiTree(intValue);
                 cout << "Done." << endl;
                 break;
             }

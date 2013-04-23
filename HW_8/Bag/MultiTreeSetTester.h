@@ -13,33 +13,33 @@ public:
 private slots:
     void testEmpty()
     {
-        Tree<int> setInt;
+        MultiTreeSet<int> setInt;
         QVERIFY(setInt.isEmpty());
-        Tree<char> setChar;
+        MultiTreeSet<char> setChar;
         QVERIFY(setChar.isEmpty());
     }
     void testAdd()
     {
-        Tree<int> setInt;
-        setInt.addToTree(4);
+        MultiTreeSet<int> setInt;
+        setInt.addToMultiTree(4);
         QVERIFY(setInt.root->value == 4);
     }
     void testExsistingAdded()
     {
-       Tree<int> setInt;
-       setInt.addToTree(0);
+       MultiTreeSet<int> setInt;
+       setInt.addToMultiTree(0);
        QVERIFY(setInt.exsistsInTree(0));
     }
     void testExsistingUnadded()
     {
-       Tree<char> setChar;
-       setChar.addToTree('o');
+       MultiTreeSet<char> setChar;
+       setChar.addToMultiTree('o');
        QVERIFY(!setChar.exsistsInTree('p'));
     }
     void testRemoving()
     {
-        Tree<int> setInt;
-        setInt.addToTree(4);
+        MultiTreeSet<int> setInt;
+        setInt.addToMultiTree(4);
         setInt.removeFromTree(4);
         QVERIFY(setInt.isEmpty());
     }
