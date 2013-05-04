@@ -1,4 +1,5 @@
 #include "MultiTreeSetTester.h"
+#include "ListTester.h"
 #include "MultiTreeSet.h"
 #include <iostream>
 
@@ -36,8 +37,10 @@ int askAction()
 
 int main()
 {
-    MultiTreeSetTester tester;
-    QTest::qExec(&tester);
+    ListTester testerList;
+    QTest::qExec(&testerList);
+    MultiTreeSetTester testerSet;
+    QTest::qExec(&testerSet);
     int type = askType();
     introduction();
     int answer = -1;
@@ -63,13 +66,13 @@ int main()
             {
                 cout << "What value? " << endl;
                 cin >> charValue;
-                treeSet->removeFromTree(charValue);
+                treeSet->removeFromMultiTree(charValue);
                 cout << "Done." << endl;
                 break;
             }
             case(printup):
             {
-                treeSet->treeInorder();
+                treeSet->printTree();
                 cout << endl;
                 break;
             }
@@ -107,13 +110,13 @@ int main()
             {
                 cout << "What value? " << endl;
                 cin >> intValue;
-                treeSet->removeFromTree(intValue);
+                treeSet->removeFromMultiTree(intValue);
                 cout << "Done." << endl;
                 break;
             }
             case(printup):
             {
-                treeSet->treeInorder();
+                treeSet->printTree();
                 cout << endl;
                 break;
             }

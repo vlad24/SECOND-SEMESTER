@@ -8,5 +8,7 @@ SOURCES += main.cpp
 HEADERS += \
     TreeSet.h \
     MultiTreeSet.h \
-    MultiTreeSetTester.h
+    SortedList.h \
+    MultiTreeSetTester.h \
+    ListTester.h
 

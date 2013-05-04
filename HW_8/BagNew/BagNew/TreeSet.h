@@ -35,7 +35,7 @@ public:
         removeFromSubTree(root, value);
     }
 
-    void treeInorder()
+    virtual void printTree()
     {
         if (!(isEmpty()))
             inorder(root);
@@ -50,10 +50,10 @@ public:
     void sumTrees(TreeSet* &anotherTreeSet)
     {
         sumSubTrees(root, anotherTreeSet);
-        anotherTreeSet->treeInorder();
+        anotherTreeSet->printTree();
     }
 
-    ~TreeSet()
+    virtual ~TreeSet()
     {
         deleteSubTree(root);
     }
@@ -163,7 +163,7 @@ template <typename O>
 void TreeSet<O>::removeFromSubTree(TreeNode* &node,O value)
 {
     if (node == NULL)
-        cout << "no such an element.\n";
+        cout << "No such an element.";
     else if (node -> value == value )
     {
         if ((isLeaf(node))||(hasOneChild(node)))
