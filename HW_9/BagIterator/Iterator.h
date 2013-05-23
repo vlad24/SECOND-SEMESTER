@@ -12,23 +12,30 @@ class Iterator
 public:
     //! @param set to which we connect our iterator
     Iterator(MultiTreeSet<O> *set);
-    //! Returns The current element of the iterator and gpes to the next
+
+    //! Returns the current element of the iterator and goes to the next
     O next();
+
     //! Tells whether the element is the last
     bool hasNext()
     {
         return !(queue.isEmpty());
     }
+
     //! Adds an element to the set
     void add(O value);
+
     //! Removes current iterator's element from the element
     void remove();
+
     ~Iterator();
 private:
     //! A set with which an iterator will work
     MultiTreeSet<O>* workingSet;
+
     //! A queue that contains elements of the set in special order
     Queue<O> queue;
+
     void formIteratorQueue(TreeNode<O> *node);
 };
 
